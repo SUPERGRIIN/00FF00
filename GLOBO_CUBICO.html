@@ -3,11 +3,8 @@
 <html>
 <head>
     <script src="/00FF00/processing-1.4.8.min.js"></script>
-    
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-</head>
-<body onkeypress="inicio(event)">
+    </head>
+<body onkeypress="inicio(event)" onLoad="LoadOnce()">
     <canvas data-processing-sources="/00FF00/GLOBO_CUBICO.js" style='position: absolute; z-index: auto; width: auto; height: auto; top: auto; right: auto; left: auto' id="canvas"></canvas>
     <script>
         function inicio(event) {
@@ -17,6 +14,11 @@
                 }
 
         }
+        
+        function LoadOnce(){
+            window.location.reload(); 
+            }
+
     </script>
 </body>
 </html>
