@@ -11,7 +11,7 @@ float r;
 void setup() 
 { 
     size(innerWidth-15,innerHeight-15, P3D);
-    pix = loadImage("00FF00/1p.png"); 
+    pix = loadImage("/00FF00/1p.png"); 
     pix2 = loadImage("/00FF00/2p.png"); 
     pix3 = loadImage("/00FF00/3p.png"); 
     pix4 = loadImage("/00FF00/4p.png"); 
