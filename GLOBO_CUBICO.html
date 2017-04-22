@@ -2,9 +2,9 @@
 <html>
 <head>
     <script src="/00FF00/processing-1.4.8.min.js"></script>
-  
+  <meta http-equiv="refresh"  content="3">
     </head>
-<body onkeypress="inicio(event)" onload="refresh()">
+<body onkeypress="inicio(event)">
     <canvas data-processing-sources="/00FF00/GLOBO_CUBICO.js" style='position: absolute; z-index: auto; width: auto; height: auto; top: auto; right: auto; left: auto' id="canvas"></canvas>
     <script>
         function inicio(event) {
@@ -14,16 +14,7 @@
                 }
 
         }
-        
-        function refresh(){
-            if (self.name != '_refreshed_'){
-               self.name = '_refreshed_';
-               self.location.reload(true);
-            } else {
-               self.name = ''; 
-            }
-        }, 5000);
-    
+            
 
     </script>
 </body>
