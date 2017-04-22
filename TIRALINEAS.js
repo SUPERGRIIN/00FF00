@@ -16,9 +16,9 @@ void setup () {
   noStroke();
  // x = width / 2;
  // y = height / 2;
-  Gobold = loadFont("00FF00/Verdana-8.vlw");;
+  Gobold = loadFont("/00FF00/Verdana-8.vlw");;
   textFont (Gobold);
-  mp = loadStrings ("00FF00/H.txt");
+  mp = loadStrings ("/00FF00/H.txt");
     }
 
 void draw () {
