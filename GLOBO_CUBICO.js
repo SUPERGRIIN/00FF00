@@ -11,12 +11,12 @@ float r;
 void setup() 
 { 
     size(innerWidth-15,innerHeight-15, P3D);
-    pix = loadImage("data/1p.png"); 
-    pix2 = loadImage("data/2p.png"); 
-    pix3 = loadImage("data/3p.png"); 
-    pix4 = loadImage("data/4p.png"); 
-    pix5 = loadImage("data/5p.png"); 
-    pix6 = loadImage("data/6p.png"); 
+    pix = loadImage("/1p.png"); 
+    pix2 = loadImage("/2p.png"); 
+    pix3 = loadImage("/3p.png"); 
+    pix4 = loadImage("/4p.png"); 
+    pix5 = loadImage("/5p.png"); 
+    pix6 = loadImage("/6p.png"); 
     textureMode(NORMAL); 
     background(255);
     noCursor();
