@@ -1,2 +1,0 @@
-# -00FF00
-S U P E R G R E E N
