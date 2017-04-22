@@ -18,9 +18,9 @@ void setup () {
   noStroke();
   x = width;
   y = height;
-  Gobold = loadFont("00FF00/YuGothic-Light-48.vlw");;
+  Gobold = loadFont("/00FF00/YuGothic-Light-48.vlw");;
   textFont (Gobold);
-  mp = loadStrings ("00FF00/SPC.txt");
+  mp = loadStrings ("/00FF00/SPC.txt");
     }
 
 void draw () {
