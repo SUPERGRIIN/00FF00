@@ -20,7 +20,7 @@ void setup()
 {
 
 
-    cardImg = loadImage("data/RB.jpg");
+    cardImg = loadImage("/00ff00/RB.jpg");
   
     size(innerWidth-15,innerHeight-15);
     noCursor();
