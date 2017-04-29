@@ -1,96 +1,42 @@
-﻿PImage pix; 
-PImage pix2; 
-PImage pix3; 
-PImage pix4; 
-PImage pix5; 
-PImage pix6; 
-float rotx = PI/4; 
-float roty = PI/4; 
-float r;
 
-void setup() 
-{ 
-    size(innerWidth-15,innerHeight-15, P3D);
-    pix = loadImage("/00FF00/1p.png"); 
-    pix2 = loadImage("/00FF00/2p.png"); 
-    pix3 = loadImage("/00FF00/3p.png"); 
-    pix4 = loadImage("/00FF00/4p.png"); 
-    pix5 = loadImage("/00FF00/5p.png"); 
-    pix6 = loadImage("/00FF00/6p.png"); 
-    textureMode(NORMAL); 
-    background(255);
-    noCursor();
-    ortho(-width, width, -height, height, -1000, 1000);
-   
-    stroke(0,255,0);
-    strokeWeight(0.001);
-} 
+float radious = 100;
 
-void draw() 
-{ 
-    background(255); 
-    translate(width/2.0, height/2.0, 600); 
-    rotateY(radians(r));
-    rotateX(radians(r));
-    rotateZ(radians(r));
-    r = r +.5;
-    scale(200); 
-    TexturedCube(pix,pix2,pix3,pix4,pix5,pix6); 
-    
-  
-} 
+void setup(){
+  size (innerWidth-15, innerHeight-15, P3D);
+  noCursor();
+  stroke(0,255,0);
+  strokeWeight(1);
+  smooth(200);
+  }
 
-void TexturedCube(PImage pix,PImage pix2,PImage pix3,PImage pix4,PImage pix5,PImage pix6)
-{ 
-  beginShape(QUADS); 
-texture(pix); 
-
-// +Z "front" face 
-vertex(-1, -1,  1, 0, 0); 
-vertex( 1, -1,  1, 1, 0); 
-vertex( 1,  1,  1, 1, 1); 
-vertex(-1,  1,  1, 0, 1); 
-endShape(); 
-beginShape(QUADS); 
-texture(pix2); 
-// -Z "back" face 
-vertex( 1, -1, -1, 0, 0); 
-vertex(-1, -1, -1, 1, 0); 
-vertex(-1,  1, -1, 1, 1); 
-vertex( 1,  1, -1, 0, 1); 
-endShape(); 
-beginShape(QUADS); 
-texture(pix3); 
-// +Y "bottom" face 
-vertex(-1,  1,  1, 0, 0); 
-vertex( 1,  1,  1, 1, 0); 
-vertex( 1,  1, -1, 1, 1); 
-vertex(-1,  1, -1, 0, 1); 
-endShape(); 
-beginShape(QUADS); 
-texture(pix4); 
-// -Y "top" face 
-vertex(-1, -1, -1, 0, 0); 
-vertex( 1, -1, -1, 1, 0); 
-vertex( 1, -1,  1, 1, 1); 
-vertex(-1, -1,  1, 0, 1); 
-endShape(); 
-beginShape(QUADS); 
-texture(pix5); 
-// +X "right" face 
-vertex( 1, -1,  1, 0, 0); 
-vertex( 1, -1, -1, 1, 0); 
-vertex( 1,  1, -1, 1, 1); 
-vertex( 1,  1,  1, 0, 1); 
-endShape(); 
-beginShape(QUADS); 
-texture(pix6); 
-// -X "left" face 
-vertex(-1, -1, -1, 0, 0); 
-vertex(-1, -1,  1, 1, 0); 
-vertex(-1,  1,  1, 1, 1); 
-vertex(-1,  1, -1, 0, 1); 
-
-endShape(); 
-
-} 
+void draw(){
+  background(255);
+  translate(width / 2, height / 2, 0);
+  rotateX(frameCount * .03);
+  rotateY(frameCount * .03);
+  rotateZ(frameCount * .03);
+  int resolution = int(map(900, 0, width, 2, 30)) * 2;
+  float step = TWO_PI / resolution;
+  for(int i = 0; i < resolution / 2; i++){
+    for(int j = 0; j < resolution; j++){
+      float r1 = step * i;
+      float nr1 = step * (i + 1);
+      float r2 = step * j;
+      float nr2 = step * (j + 1);
+      PVector p1 = new PVector(radious * sin(r1) * cos(r2), radious * cos(r1), radious * sin(r1) * sin(r2));
+      PVector p2 = new PVector(radious * sin(nr1) * cos(r2), radious * cos(nr1), radious * sin(nr1) * sin(r2));
+      PVector p3 = new PVector(radious * sin(nr1) * cos(nr2), radious * cos(nr1), radious * sin(nr1) * sin(nr2));
+      PVector p4 = new PVector(radious * sin(r1) * cos(nr2), radious * cos(r1), radious * sin(r1) * sin(nr2));
+      beginShape();
+      vertex(p1.x, p1.y, p1.z);
+      vertex(p2.x, p2.y, p2.z);
+      vertex(p3.x, p3.y, p3.z);
+      vertex(p4.x, p4.y, p4.z);
+      endShape();
+      
+      
+           box (radious*1.6);
+      
+    }
+  }
+}
