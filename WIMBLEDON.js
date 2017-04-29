@@ -14,7 +14,7 @@ ortho(-width, width, -height, height, -1000, 1000);
 
 void draw(){
 background(255);
-translate(width/2,mouseY, 0); 
+translate(width/2,height/2, 0); 
 pushMatrix();
 translate(x,y,z);
 rectMode(CENTER);
@@ -25,7 +25,7 @@ noFill();
   rotateX(radians(r));
   rotateY(radians(r));
   rotateZ(radians(r));
-  r=r+-.5;
+  r=r+-.7;
 box(width/6,height/6*2,width/6*3);
 fill(0,255,0);
 popMatrix();
